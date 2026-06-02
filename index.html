@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Is your password good?</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=DM+Mono:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-canvas" id="bgCanvas" aria-hidden="true"></div>
+
+    <main class="card">
+      <h1 class="headline">Is your password good?</h1>
+
+      <div class="input-wrap">
+        <input
+          class="pw-input"
+          type="text"
+          placeholder="Enter a password!"
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </div>
+
+      <p class="feedback hidden">Your password is great!</p>
+
+      <p class="rules">
+        *You must have at least 8 characters,<br />
+        with at least 1 capital letter,<br />
+        number and special symbol.<br /><br />
+
+        Keep in mind that a good password<br />
+        does not use words from a<br />
+        dictionary, birthdays or names.<br /><br /><br /><br /><br /><br />
+
+        Made by Tyler Su and Lucas Soh
+      </p>
+    </main>
+
+    <script src="bg.js"></script>
+
+    <script>
+      const input = document.querySelector(".pw-input");
+      const feedback = document.querySelector(".feedback");
+
+      function validate(pw) {
+        return (
+          pw.length >= 8 &&
+          /[A-Z]/.test(pw) &&
+          /[0-9]/.test(pw) &&
+          /[^A-Za-z0-9]/.test(pw)
+        );
+      }
+
+      input.addEventListener("input", () => {
+        const pw = input.value;
+
+        if (!pw.length) {
+          feedback.className = "feedback hidden";
+          return;
+        }
+
+        if (validate(pw)) {
+          feedback.className = "feedback great";
+          feedback.textContent = "Your password is great!";
+        } else {
+          feedback.className = "feedback weak";
+          feedback.textContent = "You do not have a good password :(";
+        }
+      });
+    </script>
+  </body>
+</html>
