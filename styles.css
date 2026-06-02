@@ -1,0 +1,143 @@
+:root {
+  --bg: #e8e8e8;
+  --bg-char: rgba(0, 0, 0, 1);
+  --text: #1a1a1a;
+  --muted: #555;
+  --great: #22a84a;
+  --weak: #cc3333;
+  --font-head: "Barlow Condensed", sans-serif;
+  --font-body: "DM Mono", monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  font-family: var(--font-body);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Background */
+
+.bg-canvas {
+  position: fixed;
+  inset: -75%;
+  z-index: 0;
+  pointer-events: none;
+  transform: rotate(-18deg);
+  transform-origin: center center;
+}
+
+.bg-row {
+  position: absolute;
+  left: 0;
+  white-space: nowrap;
+  display: flex;
+
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.bg-row span {
+  font-family: var(--font-body);
+  font-size: 1.55rem;
+  color: var(--bg-char);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  display: inline-block;
+  padding: 0 0.1em;
+  user-select: none;
+}
+
+/* Card */
+
+.card {
+  position: relative;
+  z-index: 10;
+  width: min(540px, 88vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.8rem;
+  padding: 1rem;
+}
+
+/* Headline */
+
+.headline {
+  font-family: var(--font-head);
+  font-size: clamp(2.2rem, 7vw, 3.6rem);
+  color: var(--text);
+  line-height: 1.1;
+  text-align: center;
+  letter-spacing: -0.02em;
+  padding-bottom: 1em;
+}
+
+/* Input */
+
+.input-wrap {
+  width: 100%;
+}
+
+.pw-input {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text);
+  background: #fff;
+  border: 2px solid var(--text);
+  padding: 0.75rem 1rem;
+  outline: none;
+  letter-spacing: 0.06em;
+  transition: box-shadow 0.15s;
+}
+
+.pw-input::placeholder {
+  color: #aaa;
+}
+
+.pw-input:focus {
+  box-shadow: 3px 3px 0 var(--text);
+}
+
+/* Feedback */
+
+.feedback {
+  font-size: 1rem;
+  align-self: flex-start;
+}
+
+.feedback.great {
+  color: var(--great);
+}
+
+.feedback.weak {
+  color: var(--weak);
+}
+
+.feedback.hidden {
+  visibility: hidden;
+}
+
+/* Rules */
+
+.rules {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.75;
+  text-align: center;
+}
