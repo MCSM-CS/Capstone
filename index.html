@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Is your password good?</title>
+    <title>Login System</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,6 +23,13 @@
 
       <div class="input-wrap">
         <input
+          class="un-input"
+          type="text"
+          placeholder="Enter a username!"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <input
           class="pw-input"
           type="text"
           placeholder="Enter a password!"
@@ -34,13 +41,10 @@
       <p class="feedback hidden">Your password is great!</p>
 
       <p class="rules">
-        *You must have at least 8 characters,<br />
+        *Your username must be unique with at least 3 characters<br />
+        *Your password must have at least 8 characters,<br />
         with at least 1 capital letter,<br />
         number and special symbol.<br /><br />
-
-        Keep in mind that a good password<br />
-        does not use words from a<br />
-        dictionary, birthdays or names.<br /><br /><br /><br /><br /><br />
 
         Made by Tyler Su and Lucas Soh
       </p>
